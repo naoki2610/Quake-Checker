@@ -288,9 +288,9 @@
       initDates();
     });
 
-// 1. マップ初期化 (カスタムPaneによる確実なレイヤー重畳表示)
+// 1. マップ初期化 (エンドポイント修正・CORS対応・確実なレイヤー重畳)
 function initMap() {
-  // Leaflet Canvas レンダラーを適用
+  // Leaflet Canvas レンダラーを適用して描画を高速化
   map = L.map('map', { 
     zoomControl: false, 
     renderer: L.canvas() 
@@ -298,30 +298,34 @@ function initMap() {
 
   L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-  // 【重要】地質図専用の描画ペイン(Pane)を作成し、背景地図(zIndex: 200)の上(400)に配置
+  // 【修正③】地質図専用のPane（描画レイヤー階層）を生成し、背景地図(200)の上に固定(400)
   map.createPane('geologyPane');
   map.getPane('geologyPane').style.zIndex = 400;
-  map.getPane('geologyPane').style.pointerEvents = 'none'; // クリックイベントを透過
+  map.getPane('geologyPane').style.pointerEvents = 'none'; // クリック操作を下のマップへ透過
 
   // ① 国土地理院 標準地図
   const stdMap = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
     maxZoom: 18,
+    crossOrigin: true, // 【修正②】画像エクスポート時のCORSエラー防止
     attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">国土地理院</a>'
   }).addTo(map);
 
   // ② 国土地理院 陰影起伏図
   const hillShadeMap = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/hillshademap/{z}/{x}/{y}.png', {
     maxZoom: 16,
+    crossOrigin: true, // 【修正②】
     attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">国土地理院</a>'
   });
 
-  // ③ 産総研 シームレス地質図V2 (geologyPane を指定して前面へ描画)
-  geologyTileLayer = L.tileLayer('https://tiles.gsj.jp/tiles/seamless/v2/mid/{z}/{y}/{x}.png', {
-    pane: 'geologyPane',   // 専用ペインに配置（背景地図に隠れない）
-    minZoom: 5,            // 地質図タイルの最小ズーム
-    maxNativeZoom: 13,     // GSJタイルの最大ズーム(13)を超えたら拡大描画
+  // ③ 産総研 シームレス地質図V2
+  // 【修正①】公式の正しいエンドポイント (API仕様に基づき {z}/{y}/{x}.png の順序でリクエスト)
+  geologyTileLayer = L.tileLayer('https://gbank.gsj.jp/seamless/v2/api/1.2.1/tiles/{z}/{y}/{x}.png', {
+    pane: 'geologyPane',   // 専用Paneに強制配置して隠蔽を防止
+    minZoom: 5,            // APIが提供する最小ズーム
+    maxNativeZoom: 13,     // APIの最大ズーム(13以上はLeafletが自動的に画像を引き伸ばして表示)
     maxZoom: 18,
-    opacity: 0.75,         // 初期透明度 75%
+    opacity: 0.75,
+    crossOrigin: true,     // 【修正②】これがないとCanvas汚染で表示・保存エラーになる
     attribution: '<a href="https://gbank.gsj.jp/seamless/" target="_blank">産総研地質調査総合センター</a>'
   }).addTo(map);
 
@@ -339,7 +343,7 @@ function initMap() {
   // 地図クリックイベントハンドラ
   map.on('click', handleMapClick);
 }
-       
+          
        function initDates() {
       const today = new Date();
       const oneMonthAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
