@@ -32,43 +32,35 @@
     .tool-btn:hover { background: #334155; }
     .tool-btn.active { background: #0284c7; }
 
-    /* 透明度コントロールポップオーバー */
+    /* 透明度コントロール */
     .opacity-card {
       background: #ffffff; color: #333; padding: 8px 12px; border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 11px; display: none;
-      align-items: center; gap: 8px; border: 1px solid #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2); font-size: 11px; display: none; align-items: center; gap: 8px; border: 1px solid #cbd5e1;
     }
 
     /* ガイド案内トースト */
     .guide-toast {
       position: absolute; top: 60px; left: 50%; transform: translateX(-50%); z-index: 1500;
       background: #0284c7; color: #fff; padding: 8px 16px; border-radius: 20px;
-      font-size: 12px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      display: none; pointer-events: none; animation: pulse 2s infinite;
+      font-size: 12px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.3); display: none; pointer-events: none; animation: pulse 2s infinite;
     }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.8; } }
 
-    /* ローディングインジケータ */
+    /* ローディング */
     .loading-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(15, 23, 42, 0.7); z-index: 3000;
-      display: none; flex-direction: column; align-items: center; justify-content: center; color: #fff;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); z-index: 3000; display: none; flex-direction: column; align-items: center; justify-content: center; color: #fff;
     }
     .spinner {
-      width: 44px; height: 44px; border: 4px solid #fff; border-bottom-color: transparent;
-      border-radius: 50%; animation: rotation 1s linear infinite; margin-bottom: 12px;
+      width: 44px; height: 44px; border: 4px solid #fff; border-bottom-color: transparent; border-radius: 50%; animation: rotation 1s linear infinite; margin-bottom: 12px;
     }
     @keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
     /* モーダルウィザード */
     .wizard-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6); z-index: 2000;
-      display: flex; align-items: center; justify-content: center; padding: 16px;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 16px;
     }
     .wizard-card {
-      background: #ffffff; width: 100%; max-width: 460px;
-      border-radius: 12px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      background: #ffffff; width: 100%; max-width: 460px; border-radius: 12px; padding: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
     .progress-bar { display: flex; justify-content: space-between; margin-bottom: 16px; }
     .progress-step { width: 22%; text-align: center; font-size: 11px; font-weight: bold; color: #94a3b8; padding-bottom: 4px; border-bottom: 3px solid #e2e8f0; }
@@ -78,11 +70,15 @@
     .wizard-desc { font-size: 12px; color: #64748b; margin-bottom: 14px; line-height: 1.4; }
 
     .option-btn {
-      display: block; width: 100%; padding: 10px 12px; margin-bottom: 8px;
-      background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px;
-      text-align: left; font-size: 12px; font-weight: bold; color: #334155; cursor: pointer;
+      display: block; width: 100%; padding: 10px 12px; margin-bottom: 8px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; text-align: left; font-size: 12px; font-weight: bold; color: #334155; cursor: pointer;
     }
     .option-btn:hover { background: #f0f9ff; border-color: #0284c7; color: #0284c7; }
+    
+    .pref-container {
+      margin-top:10px; padding:10px; background:#f8fafc; border:1px solid #cbd5e1; border-radius:6px;
+    }
+    .pref-container label { font-size:11px; font-weight:bold; color:#475569; display:block; margin-bottom:6px; }
+    .pref-select { width: 100%; padding: 8px; font-size: 13px; border: 1px solid #cbd5e1; border-radius: 6px; cursor: pointer; }
 
     .form-group { margin-bottom: 10px; }
     .form-group label { display: block; font-size: 11px; font-weight: bold; color: #475569; margin-bottom: 4px; }
@@ -94,50 +90,39 @@
     .btn-secondary { background: #e2e8f0; color: #334155; }
     .btn-success { background: #16a34a; color: #fff; }
 
-    /* 下部：震源断面図 (A-A') パネル */
+    /* 震源断面図 (A-A') パネル */
     .cross-section-panel {
-      position: absolute; bottom: 0; left: 0; width: 100%; height: 260px;
-      background: rgba(255, 255, 255, 0.96); z-index: 1000;
-      border-top: 2px solid #0284c7; padding: 8px 16px;
-      box-shadow: 0 -4px 16px rgba(0,0,0,0.15); display: none;
+      position: absolute; bottom: 0; left: 0; width: 100%; height: 260px; background: rgba(255, 255, 255, 0.96); z-index: 1000; border-top: 2px solid #0284c7; padding: 8px 16px; box-shadow: 0 -4px 16px rgba(0,0,0,0.15); display: none;
     }
     .cs-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
     .cs-title { font-size: 12px; font-weight: bold; color: #0f172a; display: flex; align-items: center; gap: 12px; }
 
-    /* バッファ解析結果ポップアップ */
     .buffer-summary-card { font-size: 12px; line-height: 1.6; color: #0f172a; padding: 4px; }
     #map.drag-over { outline: 4px dashed #0284c7; outline-offset: -4px; }
   </style>
 </head>
 <body>
 
-  <!-- 通信用ローディング画面 -->
   <div class="loading-overlay" id="loading-overlay">
     <div class="spinner"></div>
     <div id="loading-text" style="font-size:13px; font-weight:bold;">データを取得・解析中...</div>
   </div>
 
-  <!-- ガイド案内トースト -->
   <div class="guide-toast" id="guide-toast">案内メッセージ</div>
 
-  <!-- 上部ツールバー -->
   <div class="top-toolbar">
     <button class="tool-btn" onclick="openWizard()">🔄 条件検索・取得</button>
     <button class="tool-btn" id="cross-section-btn" onclick="toggleCrossSectionMode()">📏 断面解析 (A-A')</button>
     <button class="tool-btn" id="buffer-btn" onclick="toggleBufferMode()">🎯 半径バッファ解析</button>
     <button class="tool-btn" onclick="toggleOpacityCard()">🎛️ 地質図透明度</button>
-    
-    <!-- 透明度スライダーポップオーバー -->
     <div class="opacity-card" id="opacity-card">
       <label for="geology-opacity">地質図:</label>
       <input type="range" id="geology-opacity" min="0" max="1" step="0.05" value="0.75" oninput="setGeologyOpacity(this.value)">
       <span id="opacity-val">75%</span>
     </div>
-
     <button class="tool-btn" onclick="exportMapImage()">📸 PNG保存</button>
   </div>
 
-  <!-- モーダル対話ガイド (ウィザード) -->
   <div class="wizard-overlay" id="wizard-modal">
     <div class="wizard-card">
       <div class="progress-bar">
@@ -151,10 +136,19 @@
       <div class="wizard-step" id="step-1">
         <div class="wizard-title">📍 対象地域を選択</div>
         <div class="wizard-desc">調査対象エリアを指定します。</div>
+        
         <button class="option-btn" onclick="setRegionMode('gps')">📱 スマホGPS現在地（周辺 150km）</button>
-        <button class="option-btn" onclick="setRegionMode('kyushu')">🗺️ 熊本・九州エリア</button>
-        <button class="option-btn" onclick="setRegionMode('japan')">🇯🇵 日本全域</button>
-        <button class="option-btn" onclick="setRegionMode('global')">🌐 全世界</button>
+        <button class="option-btn" onclick="setRegionMode('japan')">🇯🇵 日本全域 (俯瞰・広域指定)</button>
+        
+        <!-- 都道府県選択 -->
+        <div class="pref-container">
+          <label>🗾 都道府県を指定して検索（沿岸部含む）:</label>
+          <div style="display:flex; gap:8px;">
+            <select id="pref-select" class="pref-select"></select>
+            <button class="btn btn-primary" style="padding:8px 16px; flex:none; width:auto;" onclick="setPrefectureMode()">選択</button>
+          </div>
+        </div>
+
         <div style="margin-top:10px; border-top:1px solid #e2e8f0; padding-top:8px;">
           <label style="font-size:11px; font-weight:bold; color:#64748b;">またはローカルファイルを解析:</label>
           <input type="file" id="file-input" accept=".geojson,.json,.csv" style="margin-top:4px; font-size:11px; width:100%;">
@@ -196,8 +190,8 @@
           <input type="range" class="form-control" id="w-min-mag" min="0" max="8" step="0.5" value="2.0" oninput="document.getElementById('m-val-label').textContent=this.value">
         </div>
         <div class="form-group">
-          <label>最大震源深さ: <span id="d-val-label" style="color:#0284c7; font-weight:bold;">300</span> km</label>
-          <input type="range" class="form-control" id="w-max-depth" min="10" max="700" step="10" value="300" oninput="document.getElementById('d-val-label').textContent=this.value">
+          <label>最大震源深さ: <span id="d-val-label" style="color:#0284c7; font-weight:bold;">700</span> km</label>
+          <input type="range" class="form-control" id="w-max-depth" min="10" max="700" step="10" value="700" oninput="document.getElementById('d-val-label').textContent=this.value">
         </div>
         <div class="nav-buttons">
           <button class="btn btn-secondary" onclick="goToStep(2)">戻る</button>
@@ -218,7 +212,6 @@
     </div>
   </div>
 
-  <!-- 下部：震源断面図 (A-A') パネル -->
   <div class="cross-section-panel" id="cs-panel">
     <div class="cs-header">
       <div class="cs-title">
@@ -240,103 +233,99 @@
     </div>
   </div>
 
-  <!-- マップ描画コンテナ -->
   <div id="map"></div>
-
-  <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
-    // グローバル状態管理
-    let map = null;
-    let baseLayers = {}, overlayLayers = {};
-    let geologyTileLayer = null;
-    let currentGeoJsonLayer = null;
-    let rawGeoJsonData = { type: "FeatureCollection", features: [] }; // 統合データ用
-
-    // モード管理
-    let activeMode = 'none'; // 'none' | 'cs' | 'buffer'
-    let csPoints = [];
-    let csLineLayer = null;
-    let csChart = null;
-    let bufferLayer = null;
-    let bufferRadiusKm = 20;
+    let map = null, baseLayers = {}, overlayLayers = {}, geologyTileLayer = null, currentGeoJsonLayer = null;
+    let rawGeoJsonData = { type: "FeatureCollection", features: [] };
+    let activeMode = 'none', csPoints = [], csLineLayer = null, csChart = null, bufferLayer = null, bufferRadiusKm = 20;
 
     // 検索パラメーター
-    let searchParams = { regionMode: 'kyushu', lat: null, lon: null, startDate: '', endDate: '', minMag: 2.0, maxDepth: 300 };
+    let searchParams = { regionMode: 'japan', pref: '', lat: null, lon: null, startDate: '', endDate: '', minMag: 2.0, maxDepth: 700 };
 
-    const REGION_BOUNDS = {
-      kyushu: { minlat: 30.5, maxlat: 34.5, minlon: 128.5, maxlon: 132.5 },
-      japan:  { minlat: 24.0, maxlat: 46.0, minlon: 122.0, maxlon: 154.0 },
-      global: null
+    // 地域バウンディングボックス定義
+    const REGION_BOUNDS = { japan: { minlat: 24.0, maxlat: 46.0, minlon: 122.0, maxlon: 154.0 } };
+    
+    // 47都道府県の概算境界（沿岸部カバーのため、利用時に0.3度拡幅処理）
+    const PREFECTURE_BOUNDS = {
+      "北海道": { minlat: 41.2, maxlat: 45.6, minlon: 139.3, maxlon: 148.9 }, "青森県": { minlat: 40.2, maxlat: 41.6, minlon: 139.8, maxlon: 141.7 },
+      "岩手県": { minlat: 38.7, maxlat: 40.5, minlon: 140.6, maxlon: 142.1 }, "宮城県": { minlat: 37.8, maxlat: 39.0, minlon: 140.2, maxlon: 141.7 },
+      "秋田県": { minlat: 38.8, maxlat: 40.5, minlon: 139.6, maxlon: 140.9 }, "山形県": { minlat: 37.7, maxlat: 39.2, minlon: 139.5, maxlon: 140.7 },
+      "福島県": { minlat: 36.7, maxlat: 38.0, minlon: 139.1, maxlon: 141.1 }, "茨城県": { minlat: 35.7, maxlat: 37.0, minlon: 139.6, maxlon: 140.9 },
+      "栃木県": { minlat: 36.1, maxlat: 37.2, minlon: 139.3, maxlon: 140.3 }, "群馬県": { minlat: 35.9, maxlat: 37.1, minlon: 138.3, maxlon: 139.6 },
+      "埼玉県": { minlat: 35.7, maxlat: 36.3, minlon: 138.7, maxlon: 139.9 }, "千葉県": { minlat: 34.8, maxlat: 36.1, minlon: 139.7, maxlon: 140.9 },
+      "東京都": { minlat: 35.5, maxlat: 35.9, minlon: 138.9, maxlon: 139.9 }, "神奈川県": { minlat: 35.1, maxlat: 35.7, minlon: 138.9, maxlon: 139.8 },
+      "新潟県": { minlat: 36.7, maxlat: 38.6, minlon: 137.6, maxlon: 139.9 }, "富山県": { minlat: 36.2, maxlat: 37.0, minlon: 136.7, maxlon: 137.8 },
+      "石川県": { minlat: 36.0, maxlat: 37.9, minlon: 136.2, maxlon: 137.4 }, "福井県": { minlat: 35.3, maxlat: 36.3, minlon: 135.4, maxlon: 136.9 },
+      "山梨県": { minlat: 35.1, maxlat: 36.0, minlon: 138.1, maxlon: 139.2 }, "長野県": { minlat: 35.1, maxlat: 37.1, minlon: 137.3, maxlon: 138.8 },
+      "岐阜県": { minlat: 35.1, maxlat: 36.5, minlon: 136.2, maxlon: 137.7 }, "静岡県": { minlat: 34.5, maxlat: 35.7, minlon: 137.4, maxlon: 139.1 },
+      "愛知県": { minlat: 34.5, maxlat: 35.4, minlon: 136.6, maxlon: 137.9 }, "三重県": { minlat: 33.7, maxlat: 35.3, minlon: 135.8, maxlon: 137.0 },
+      "滋賀県": { minlat: 34.7, maxlat: 35.7, minlon: 135.7, maxlon: 136.5 }, "京都府": { minlat: 34.6, maxlat: 35.8, minlon: 134.8, maxlon: 136.0 },
+      "大阪府": { minlat: 34.2, maxlat: 35.1, minlon: 135.1, maxlon: 135.7 }, "兵庫県": { minlat: 34.1, maxlat: 35.7, minlon: 134.2, maxlon: 135.5 },
+      "奈良県": { minlat: 33.8, maxlat: 34.8, minlon: 135.5, maxlon: 136.2 }, "和歌山県": { minlat: 33.4, maxlat: 34.4, minlon: 135.0, maxlon: 136.0 },
+      "鳥取県": { minlat: 35.0, maxlat: 35.6, minlon: 133.2, maxlon: 134.5 }, "島根県": { minlat: 34.3, maxlat: 36.4, minlon: 131.6, maxlon: 133.4 },
+      "岡山県": { minlat: 34.2, maxlat: 35.3, minlon: 133.2, maxlon: 134.4 }, "広島県": { minlat: 34.0, maxlat: 35.1, minlon: 132.1, maxlon: 133.5 },
+      "山口県": { minlat: 33.7, maxlat: 34.8, minlon: 130.7, maxlon: 132.3 }, "徳島県": { minlat: 33.5, maxlat: 34.3, minlon: 133.6, maxlon: 134.8 },
+      "香川県": { minlat: 34.0, maxlat: 34.6, minlon: 133.4, maxlon: 134.5 }, "愛媛県": { minlat: 32.8, maxlat: 34.3, minlon: 132.0, maxlon: 133.7 },
+      "高知県": { minlat: 32.7, maxlat: 33.9, minlon: 132.4, maxlon: 134.4 }, "福岡県": { minlat: 32.9, maxlat: 34.0, minlon: 129.9, maxlon: 131.2 },
+      "佐賀県": { minlat: 32.9, maxlat: 33.6, minlon: 129.7, maxlon: 130.6 }, "長崎県": { minlat: 32.5, maxlat: 34.7, minlon: 128.2, maxlon: 130.4 },
+      "熊本県": { minlat: 32.1, maxlat: 33.2, minlon: 129.9, maxlon: 131.4 }, "大分県": { minlat: 32.7, maxlat: 33.8, minlon: 130.8, maxlon: 132.1 },
+      "宮崎県": { minlat: 31.3, maxlat: 32.9, minlon: 130.6, maxlon: 132.0 }, "鹿児島県": { minlat: 27.0, maxlat: 32.3, minlon: 128.3, maxlon: 131.3 },
+      "沖縄県": { minlat: 24.0, maxlat: 27.1, minlon: 122.9, maxlon: 128.4 }
     };
 
-    // =======================================================
-    // 1. 初期化 (地質図の乗算合成・CORS完全対応版)
-    // =======================================================
     document.addEventListener('DOMContentLoaded', () => {
       initMap();
       setupDragAndDrop();
       initDates();
+      initPrefectures();
     });
 
+    // ドロップダウンへの都道府県生成とセット
+    function initPrefectures() {
+      const select = document.getElementById('pref-select');
+      for (const pref in PREFECTURE_BOUNDS) {
+        const option = document.createElement('option');
+        option.value = pref;
+        option.textContent = pref;
+        if (pref === "鹿児島県") option.selected = true;
+        select.appendChild(option);
+      }
+    }
+
+    function setPrefectureMode() {
+      searchParams.regionMode = 'prefecture';
+      searchParams.pref = document.getElementById('pref-select').value;
+      goToStep(2);
+    }
+
     function initMap() {
-      map = L.map('map', { zoomControl: false, renderer: L.canvas() }).setView([32.789, 130.705], 8);
+      map = L.map('map', { zoomControl: false, renderer: L.canvas() }).setView([35.3606, 138.7274], 5);
       L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-      // 地質図用ペイン (文字透かし効果: Multiply)
-      map.createPane('geologyPane');
-      map.getPane('geologyPane').style.zIndex = 400;
-      map.getPane('geologyPane').style.pointerEvents = 'none';
-      map.getPane('geologyPane').style.mixBlendMode = 'multiply';
-
-      const stdMap = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
-        maxZoom: 18, crossOrigin: true, attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
-      }).addTo(map);
-
-      const hillShadeMap = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/hillshademap/{z}/{x}/{y}.png', {
-        maxZoom: 16, crossOrigin: true, attribution: '国土地理院'
-      });
-
-      geologyTileLayer = L.tileLayer('https://gbank.gsj.jp/seamless/v2/api/1.2.1/tiles/{z}/{y}/{x}.png', {
-        pane: 'geologyPane', minZoom: 5, maxNativeZoom: 13, maxZoom: 18, opacity: 0.75, crossOrigin: true,
-        attribution: '<a href="https://gbank.gsj.jp/seamless/" target="_blank">産総研地質調査総合センター</a>'
-      }).addTo(map);
-
-      L.control.layers(
-        { "地理院 標準地図": stdMap, "地理院 陰影起伏図 (地形)": hillShadeMap },
-        { "産総研 シームレス地質図V2": geologyTileLayer },
-        { position: 'topright' }
-      ).addTo(map);
-
+      map.createPane('geologyPane'); map.getPane('geologyPane').style.zIndex = 400; map.getPane('geologyPane').style.pointerEvents = 'none'; map.getPane('geologyPane').style.mixBlendMode = 'multiply';
+      const stdMap = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', { maxZoom: 18, crossOrigin: true, attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>' }).addTo(map);
+      const hillShadeMap = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/hillshademap/{z}/{x}/{y}.png', { maxZoom: 16, crossOrigin: true, attribution: '国土地理院' });
+      geologyTileLayer = L.tileLayer('https://gbank.gsj.jp/seamless/v2/api/1.2.1/tiles/{z}/{y}/{x}.png', { pane: 'geologyPane', minZoom: 5, maxNativeZoom: 13, maxZoom: 18, opacity: 0.75, crossOrigin: true, attribution: '<a href="https://gbank.gsj.jp/seamless/" target="_blank">産総研</a>' }).addTo(map);
+      L.control.layers({ "地理院 標準地図": stdMap, "地理院 陰影起伏図 (地形)": hillShadeMap }, { "産総研 シームレス地質図V2": geologyTileLayer }, { position: 'topright' }).addTo(map);
       map.on('click', handleMapClick);
     }
 
     function initDates() {
-      const today = new Date();
-      const oneMonthAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
+      const today = new Date(), oneMonthAgo = new Date(today.getTime() - (30 * 24 * 3600 * 1000));
       document.getElementById('w-end-date').value = today.toISOString().split('T')[0];
       document.getElementById('w-start-date').value = oneMonthAgo.toISOString().split('T')[0];
     }
 
-    // =======================================================
-    // 2. UI制御 (ウィザード, トースト, ローディング)
-    // =======================================================
     function openWizard() { document.getElementById('wizard-modal').style.display = 'flex'; goToStep(1); }
     function closeWizard() { document.getElementById('wizard-modal').style.display = 'none'; }
     function showLoading(msg) { document.getElementById('loading-text').textContent = msg; document.getElementById('loading-overlay').style.display = 'flex'; }
     function hideLoading() { document.getElementById('loading-overlay').style.display = 'none'; }
     function showToast(text) { const t = document.getElementById('guide-toast'); t.textContent = text; t.style.display = 'block'; }
     function hideToast() { document.getElementById('guide-toast').style.display = 'none'; }
-    
-    function toggleOpacityCard() {
-      const c = document.getElementById('opacity-card');
-      c.style.display = (c.style.display === 'flex') ? 'none' : 'flex';
-    }
-    function setGeologyOpacity(val) {
-      if (geologyTileLayer) geologyTileLayer.setOpacity(val);
-      document.getElementById('opacity-val').textContent = `${Math.round(val * 100)}%`;
-    }
+    function toggleOpacityCard() { const c = document.getElementById('opacity-card'); c.style.display = (c.style.display === 'flex') ? 'none' : 'flex'; }
+    function setGeologyOpacity(val) { if (geologyTileLayer) geologyTileLayer.setOpacity(val); document.getElementById('opacity-val').textContent = `${Math.round(val * 100)}%`; }
 
     function goToStep(step) {
       for (let i = 1; i <= 4; i++) {
@@ -351,21 +340,14 @@
         if (!navigator.geolocation) return alert("GPS機能非対応です。");
         showLoading("現在地を取得中...");
         navigator.geolocation.getCurrentPosition(
-          pos => {
-            hideLoading();
-            searchParams.lat = pos.coords.latitude;
-            searchParams.lon = pos.coords.longitude;
-            map.setView([searchParams.lat, searchParams.lon], 9);
-            goToStep(2);
-          },
-          err => { hideLoading(); alert("位置情報が取得できませんでした。"); }
+          pos => { hideLoading(); searchParams.lat = pos.coords.latitude; searchParams.lon = pos.coords.longitude; map.setView([searchParams.lat, searchParams.lon], 9); goToStep(2); },
+          err => { hideLoading(); alert("位置情報が取得できません。"); }
         );
       } else { goToStep(2); }
     }
 
     function setPeriodPreset(preset) {
-      const today = new Date();
-      let start = new Date();
+      const today = new Date(); let start = new Date();
       if (preset === '1m') start.setTime(today.getTime() - (30 * 24 * 3600 * 1000));
       if (preset === '1y') start.setFullYear(today.getFullYear() - 1);
       if (preset === '10y') { start.setFullYear(today.getFullYear() - 10); document.getElementById('w-min-mag').value = 4.5; document.getElementById('m-val-label').textContent = "4.5"; }
@@ -374,14 +356,9 @@
       goToStep(3);
     }
 
-    // =======================================================
-    // 3. ハイブリッド・データ取得エンジン (USGS + 気象庁)
-    // =======================================================
     function parseJMACoordinate(cod) {
-      if (!cod) return null;
-      const match = cod.match(/^([+-]\d+(?:\.\d+)?)([+-]\d+(?:\.\d+)?)(?:([+-]\d+(?:\.\d+)?))?\//);
-      if (!match) return null;
-      return { lat: parseFloat(match[1]), lon: parseFloat(match[2]), depth: match[3] ? Math.abs(parseFloat(match[3])) / 1000 : 0 };
+      if (!cod) return null; const match = cod.match(/^([+-]\d+(?:\.\d+)?)([+-]\d+(?:\.\d+)?)(?:([+-]\d+(?:\.\d+)?))?\//);
+      if (!match) return null; return { lat: parseFloat(match[1]), lon: parseFloat(match[2]), depth: match[3] ? Math.abs(parseFloat(match[3])) / 1000 : 0 };
     }
 
     async function executeHybridSearch() {
@@ -390,52 +367,43 @@
       searchParams.minMag = parseFloat(document.getElementById('w-min-mag').value);
       searchParams.maxDepth = parseFloat(document.getElementById('w-max-depth').value);
 
-      const startUtc = new Date(`${searchParams.startDate}T00:00:00+09:00`);
-      const endUtc = new Date(`${searchParams.endDate}T23:59:59+09:00`);
-      
-      let bounds = null;
-      let boundsParam = "";
+      const startUtc = new Date(`${searchParams.startDate}T00:00:00+09:00`), endUtc = new Date(`${searchParams.endDate}T23:59:59+09:00`);
+      let bounds = null, boundsParam = "";
+
       if (searchParams.regionMode === 'gps' && searchParams.lat) {
         bounds = { minlat: searchParams.lat - 1.5, maxlat: searchParams.lat + 1.5, minlon: searchParams.lon - 1.5, maxlon: searchParams.lon + 1.5 };
+      } else if (searchParams.regionMode === 'prefecture' && searchParams.pref) {
+        const p = PREFECTURE_BOUNDS[searchParams.pref];
+        // 沿岸部の地震もカバーするため、県境から約30km(0.3度)のバッファを持たせる
+        bounds = { minlat: p.minlat - 0.3, maxlat: p.maxlat + 0.3, minlon: p.minlon - 0.3, maxlon: p.maxlon + 0.3 };
       } else if (REGION_BOUNDS[searchParams.regionMode]) {
         bounds = REGION_BOUNDS[searchParams.regionMode];
       }
+      
       if (bounds) boundsParam = `&minlatitude=${bounds.minlat}&maxlatitude=${bounds.maxlat}&minlongitude=${bounds.minlon}&maxlongitude=${bounds.maxlon}`;
-
-      showLoading("USGSおよび気象庁APIから統合データを取得中...");
+      showLoading("気象庁およびUSGS APIから統合データを取得中...");
       rawGeoJsonData.features = [];
 
       try {
-        // 並列取得 (USGS: 過去データ・グローバル用, JMA: 直近の微小地震用)
         const usgsUrl = `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startUtc.toISOString()}&endtime=${endUtc.toISOString()}&minmagnitude=${searchParams.minMag}&maxdepth=${searchParams.maxDepth}${boundsParam}&orderby=time&limit=2000`;
         const jmaUrl = `https://www.jma.go.jp/bosai/quake/data/list.json`;
-
         const [usgsRes, jmaRes] = await Promise.allSettled([ fetch(usgsUrl), fetch(jmaUrl) ]);
 
-        // USGSデータの格納
         if (usgsRes.status === 'fulfilled' && usgsRes.value.ok) {
           const usgsData = await usgsRes.value.json();
           if (usgsData.features) rawGeoJsonData.features.push(...usgsData.features);
         }
 
-        // 気象庁(JMA)データの格納（フィルタリングしつつ追加）
         if (jmaRes.status === 'fulfilled' && jmaRes.value.ok) {
           const jmaData = await jmaRes.value.json();
           jmaData.forEach(eq => {
-            if (!eq.cod) return;
-            const coords = parseJMACoordinate(eq.cod);
-            if (!coords) return;
-            const mag = parseFloat(eq.mag) || 0;
-            const eqTime = new Date(eq.at || eq.en_dt);
-            
-            // 期間・規模・震源深さ・領域でフィルタリング
+            if (!eq.cod) return; const coords = parseJMACoordinate(eq.cod); if (!coords) return;
+            const mag = parseFloat(eq.mag) || 0, eqTime = new Date(eq.at || eq.en_dt);
             if (mag >= searchParams.minMag && coords.depth <= searchParams.maxDepth && eqTime >= startUtc && eqTime <= endUtc) {
               if (bounds && (coords.lat < bounds.minlat || coords.lat > bounds.maxlat || coords.lon < bounds.minlon || coords.lon > bounds.maxlon)) return;
-              
               rawGeoJsonData.features.push({
-                "type": "Feature",
-                "geometry": { "type": "Point", "coordinates": [coords.lon, coords.lat, coords.depth] },
-                "properties": { "title": eq.anm || "気象庁検知", "magnitude": mag, "depth": coords.depth, "maxInt": eq.maxi || "不明", "time": eqTime.toISOString() }
+                type: "Feature", geometry: { type: "Point", coordinates: [coords.lon, coords.lat, coords.depth] },
+                properties: { title: eq.anm || "気象庁検知", magnitude: mag, depth: coords.depth, maxInt: eq.maxi || "不明", time: eqTime.toISOString() }
               });
             }
           });
@@ -443,211 +411,108 @@
 
         hideLoading();
         if (rawGeoJsonData.features.length === 0) return alert("指定条件に該当するデータがありません。");
-
         renderGeoJSON(rawGeoJsonData);
         document.getElementById('result-summary').textContent = `取得完了: 統合データ 全 ${rawGeoJsonData.features.length} 件`;
         goToStep(4);
 
-      } catch (err) {
-        hideLoading();
-        alert("取得エラーが発生しました: " + err.message);
-      }
+      } catch (err) { hideLoading(); alert("取得エラーが発生しました: " + err.message); }
     }
 
-    // =======================================================
-    // 4. マップへのプロット描画 (XSS対策済み)
-    // =======================================================
     function renderGeoJSON(geoJson) {
       if (currentGeoJsonLayer) map.removeLayer(currentGeoJsonLayer);
-
       currentGeoJsonLayer = L.geoJSON(geoJson, {
         pointToLayer: (feature, latlng) => {
-          const mag = feature.properties.magnitude || feature.properties.mag || 3.0;
-          const radius = Math.max(mag * 2.8, 4);
-          let fillColor = '#ffcc00'; // 黄: 小規模
-          if (mag >= 5.0) fillColor = '#cc0000'; // 赤: 大規模
-          else if (mag >= 3.0) fillColor = '#ff6600'; // オレンジ: 中規模
-
+          const mag = feature.properties.magnitude || feature.properties.mag || 3.0; const radius = Math.max(mag * 2.8, 4);
+          let fillColor = '#ffcc00'; if (mag >= 5.0) fillColor = '#cc0000'; else if (mag >= 3.0) fillColor = '#ff6600';
           return L.circleMarker(latlng, { radius: radius, fillColor: fillColor, color: '#000', weight: 1, opacity: 1, fillOpacity: 0.8 });
         },
         onEachFeature: (feature, layer) => {
-          const p = feature.properties;
-          const mag = p.magnitude || p.mag || "不明";
-          const depth = feature.geometry.coordinates[2] !== undefined ? `${feature.geometry.coordinates[2]} km` : "不明";
+          const p = feature.properties, mag = p.magnitude || p.mag || "不明", depth = feature.geometry.coordinates[2] !== undefined ? `${feature.geometry.coordinates[2]} km` : "不明";
           const maxIntHtml = p.maxInt ? `<b>最大震度:</b> <span style="color:red; font-weight:bold;">震度 ${p.maxInt}</span><br>` : "";
-          
-          const utcTime = p.time ? new Date(p.time) : null;
-          const jstTimeStr = utcTime ? utcTime.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }) : "日時不明";
+          const utcTime = p.time ? new Date(p.time) : null, jstTimeStr = utcTime ? utcTime.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' }) : "日時不明";
           const safeTitle = DOMPurify.sanitize(p.title || p.place || "地震");
-
           layer.bindPopup(`
             <div style="font-size: 12px; line-height: 1.5; min-width: 180px;">
               <h4 style="margin:0 0 4px 0; color:#0f172a;">${safeTitle}</h4>
               <hr style="border:0; border-top:1px solid #e2e8f0; margin:4px 0;">
-              ${maxIntHtml}
-              <b>規模:</b> M${mag}<br>
-              <b>深さ:</b> ${depth}<br>
-              <b>発生日時:</b> ${jstTimeStr}
+              ${maxIntHtml}<b>規模:</b> M${mag}<br><b>深さ:</b> ${depth}<br><b>発生日時:</b> ${jstTimeStr}
             </div>
           `);
         }
       }).addTo(map);
-
-      try {
-        const bounds = currentGeoJsonLayer.getBounds();
-        if (bounds.isValid()) map.fitBounds(bounds, { padding: [40, 40] });
-      } catch (e) {}
-
+      try { const bounds = currentGeoJsonLayer.getBounds(); if (bounds.isValid()) map.fitBounds(bounds, { padding: [40, 40] }); } catch (e) {}
       if (activeMode === 'cs' && csPoints.length === 2) updateCrossSectionChart();
     }
 
-    // =======================================================
-    // 5. 断面解析 (A-A') および バッファ解析 ツール
-    // =======================================================
     function toggleCrossSectionMode() {
-      if (activeMode === 'cs') {
-        activeMode = 'none';
-        document.getElementById('cross-section-btn').classList.remove('active');
-        document.getElementById('cs-panel').style.display = 'none';
-        if (csLineLayer) map.removeLayer(csLineLayer);
-        csPoints = []; hideToast();
-      } else {
-        activeMode = 'cs';
-        document.getElementById('cross-section-btn').classList.add('active');
-        document.getElementById('buffer-btn').classList.remove('active');
-        document.getElementById('cs-panel').style.display = 'block';
-        if (bufferLayer) map.removeLayer(bufferLayer);
-        csPoints = []; showToast("📍 断面の始点 (A) となる地点をタップしてください");
-      }
+      if (activeMode === 'cs') { activeMode = 'none'; document.getElementById('cross-section-btn').classList.remove('active'); document.getElementById('cs-panel').style.display = 'none'; if (csLineLayer) map.removeLayer(csLineLayer); csPoints = []; hideToast(); }
+      else { activeMode = 'cs'; document.getElementById('cross-section-btn').classList.add('active'); document.getElementById('buffer-btn').classList.remove('active'); document.getElementById('cs-panel').style.display = 'block'; if (bufferLayer) map.removeLayer(bufferLayer); csPoints = []; showToast("📍 断面の始点 (A) となる地点をタップしてください"); }
     }
-
     function toggleBufferMode() {
-      if (activeMode === 'buffer') {
-        activeMode = 'none'; document.getElementById('buffer-btn').classList.remove('active');
-        if (bufferLayer) map.removeLayer(bufferLayer); hideToast();
-      } else {
-        activeMode = 'buffer';
-        document.getElementById('buffer-btn').classList.add('active');
-        document.getElementById('cross-section-btn').classList.remove('active');
-        document.getElementById('cs-panel').style.display = 'none';
-        if (csLineLayer) map.removeLayer(csLineLayer);
-        showToast("🎯 解析対象の中心地点をタップしてください");
-      }
+      if (activeMode === 'buffer') { activeMode = 'none'; document.getElementById('buffer-btn').classList.remove('active'); if (bufferLayer) map.removeLayer(bufferLayer); hideToast(); }
+      else { activeMode = 'buffer'; document.getElementById('buffer-btn').classList.add('active'); document.getElementById('cross-section-btn').classList.remove('active'); document.getElementById('cs-panel').style.display = 'none'; if (csLineLayer) map.removeLayer(csLineLayer); showToast("🎯 解析対象の中心地点をタップしてください"); }
     }
-
     function handleMapClick(e) {
       if (activeMode === 'cs') {
-        if (csPoints.length >= 2) csPoints = [];
-        csPoints.push(e.latlng);
-        if (csLineLayer) map.removeLayer(csLineLayer);
-
-        if (csPoints.length === 1) {
-          csLineLayer = L.circleMarker(csPoints[0], { color: '#0284c7', radius: 6 }).addTo(map);
-          showToast("📍 断面の終点 (A') となる地点をタップしてください");
-        } else if (csPoints.length === 2) {
-          csLineLayer = L.layerGroup([
-            L.polyline(csPoints, { color: '#0284c7', weight: 3, dashArray: '6, 6' }),
-            L.circleMarker(csPoints[0], { color: '#0284c7', radius: 6 }).bindTooltip("A", {permanent: true}),
-            L.circleMarker(csPoints[1], { color: '#ef4444', radius: 6 }).bindTooltip("A'", {permanent: true})
-          ]).addTo(map);
+        if (csPoints.length >= 2) csPoints = []; csPoints.push(e.latlng); if (csLineLayer) map.removeLayer(csLineLayer);
+        if (csPoints.length === 1) { csLineLayer = L.circleMarker(csPoints[0], { color: '#0284c7', radius: 6 }).addTo(map); showToast("📍 断面の終点 (A') となる地点をタップしてください"); }
+        else if (csPoints.length === 2) {
+          csLineLayer = L.layerGroup([ L.polyline(csPoints, { color: '#0284c7', weight: 3, dashArray: '6, 6' }), L.circleMarker(csPoints[0], { color: '#0284c7', radius: 6 }).bindTooltip("A", {permanent: true}), L.circleMarker(csPoints[1], { color: '#ef4444', radius: 6 }).bindTooltip("A'", {permanent: true}) ]).addTo(map);
           hideToast(); updateCrossSectionChart();
         }
-      } else if (activeMode === 'buffer') {
-        runBufferAnalysis(e.latlng);
-      }
+      } else if (activeMode === 'buffer') { runBufferAnalysis(e.latlng); }
     }
 
     function runBufferAnalysis(centerLatLng) {
       if (rawGeoJsonData.features.length === 0) return alert("解析対象のデータがありません。");
       if (bufferLayer) map.removeLayer(bufferLayer);
-
-      const radiusMeters = bufferRadiusKm * 1000;
-      const bufferCircle = L.circle(centerLatLng, { radius: radiusMeters, color: '#0284c7', fillColor: '#0284c7', fillOpacity: 0.15, weight: 2 });
-
+      const radiusMeters = bufferRadiusKm * 1000, bufferCircle = L.circle(centerLatLng, { radius: radiusMeters, color: '#0284c7', fillColor: '#0284c7', fillOpacity: 0.15, weight: 2 });
       let count = 0, maxM = -1, depthSum = 0;
       rawGeoJsonData.features.forEach(f => {
-        const lat = f.geometry.coordinates[1], lon = f.geometry.coordinates[0];
-        const depth = f.geometry.coordinates[2] || 0;
-        const mag = f.properties.magnitude || f.properties.mag || 0;
-        if (centerLatLng.distanceTo(L.latLng(lat, lon)) <= radiusMeters) {
-          count++; if (mag > maxM) maxM = mag; depthSum += depth;
-        }
+        const lat = f.geometry.coordinates[1], lon = f.geometry.coordinates[0], depth = f.geometry.coordinates[2] || 0, mag = f.properties.magnitude || f.properties.mag || 0;
+        if (centerLatLng.distanceTo(L.latLng(lat, lon)) <= radiusMeters) { count++; if (mag > maxM) maxM = mag; depthSum += depth; }
       });
       const avgDepth = count > 0 ? (depthSum / count).toFixed(1) : 0;
-
-      const popupHtml = `
+      bufferCircle.bindPopup(`
         <div class="buffer-summary-card">
-          <strong style="color:#0284c7;">🎯 半径 ${bufferRadiusKm} km エリア集計</strong><br>
-          <hr style="margin:4px 0;">
-          <b>地震数:</b> <span style="color:#ef4444; font-weight:bold;">${count}</span> 件<br>
-          <b>最大規模:</b> ${maxM > -1 ? 'M' + maxM.toFixed(1) : 'なし'}<br>
-          <b>平均深さ:</b> ${avgDepth} km<br>
-          <hr style="margin:4px 0;">
+          <strong style="color:#0284c7;">🎯 半径 ${bufferRadiusKm} km エリア集計</strong><br><hr style="margin:4px 0;">
+          <b>地震数:</b> <span style="color:#ef4444; font-weight:bold;">${count}</span> 件<br><b>最大規模:</b> ${maxM > -1 ? 'M' + maxM.toFixed(1) : 'なし'}<br><b>平均深さ:</b> ${avgDepth} km<br><hr style="margin:4px 0;">
           半径変更: <select onchange="changeBufferRadius(this.value, ${centerLatLng.lat}, ${centerLatLng.lng})">
-            <option value="5" ${bufferRadiusKm==5?'selected':''}>5 km</option>
-            <option value="10" ${bufferRadiusKm==10?'selected':''}>10 km</option>
-            <option value="20" ${bufferRadiusKm==20?'selected':''}>20 km</option>
-            <option value="50" ${bufferRadiusKm==50?'selected':''}>50 km</option>
+            <option value="5" ${bufferRadiusKm==5?'selected':''}>5 km</option><option value="10" ${bufferRadiusKm==10?'selected':''}>10 km</option>
+            <option value="20" ${bufferRadiusKm==20?'selected':''}>20 km</option><option value="50" ${bufferRadiusKm==50?'selected':''}>50 km</option>
           </select>
         </div>
-      `;
-      bufferCircle.bindPopup(popupHtml);
-      bufferLayer = bufferCircle.addTo(map);
-      bufferCircle.openPopup();
+      `);
+      bufferLayer = bufferCircle.addTo(map); bufferCircle.openPopup();
     }
     function changeBufferRadius(r, lat, lng) { bufferRadiusKm = parseFloat(r); runBufferAnalysis(L.latLng(lat, lng)); }
 
     function updateCrossSectionChart() {
       if (rawGeoJsonData.features.length === 0 || csPoints.length < 2) return;
-      const pA = csPoints[0], pA_prime = csPoints[1];
-      const lineDistKm = pA.distanceTo(pA_prime) / 1000.0;
-      const bufferKm = parseFloat(document.getElementById('cs-buffer-width').value);
-      const chartData = [];
-
+      const pA = csPoints[0], pA_prime = csPoints[1], lineDistKm = pA.distanceTo(pA_prime) / 1000.0, bufferKm = parseFloat(document.getElementById('cs-buffer-width').value), chartData = [];
       rawGeoJsonData.features.forEach(f => {
-        const pE = L.latLng(f.geometry.coordinates[1], f.geometry.coordinates[0]);
-        const depth = f.geometry.coordinates[2] || 0;
-        const distA = pA.distanceTo(pE) / 1000.0, distA_prime = pA_prime.distanceTo(pE) / 1000.0;
+        const pE = L.latLng(f.geometry.coordinates[1], f.geometry.coordinates[0]), depth = f.geometry.coordinates[2] || 0, distA = pA.distanceTo(pE) / 1000.0, distA_prime = pA_prime.distanceTo(pE) / 1000.0;
         if (lineDistKm > 0) {
-          const x = (distA*distA - distA_prime*distA_prime + lineDistKm*lineDistKm) / (2 * lineDistKm);
-          const perpDist = Math.sqrt(Math.max(0, distA*distA - x*x));
-          if (x >= 0 && x <= lineDistKm && perpDist <= bufferKm) {
-            chartData.push({ x: parseFloat(x.toFixed(2)), y: parseFloat(depth.toFixed(1)), mag: f.properties.magnitude || f.properties.mag || 3.0 });
-          }
+          const x = (distA*distA - distA_prime*distA_prime + lineDistKm*lineDistKm) / (2 * lineDistKm), perpDist = Math.sqrt(Math.max(0, distA*distA - x*x));
+          if (x >= 0 && x <= lineDistKm && perpDist <= bufferKm) chartData.push({ x: parseFloat(x.toFixed(2)), y: parseFloat(depth.toFixed(1)), mag: f.properties.magnitude || f.properties.mag || 3.0 });
         }
       });
       document.getElementById('cs-info').textContent = `(断面長: ${lineDistKm.toFixed(1)} km, 投影: ${chartData.length} 件)`;
-      const ctx = document.getElementById('cs-chart').getContext('2d');
-      if (csChart) csChart.destroy();
+      const ctx = document.getElementById('cs-chart').getContext('2d'); if (csChart) csChart.destroy();
       csChart = new Chart(ctx, {
-        type: 'scatter',
-        data: { datasets: [{ label: '震源 (深さ km)', data: chartData, backgroundColor: '#ef4444', pointRadius: (ctx) => Math.max((ctx.raw?.mag || 3) * 1.5, 3) }] },
-        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
-          scales: { x: { title: { display: true, text: "A からの距離 (km)" }, min: 0, max: lineDistKm },
-                    y: { title: { display: true, text: "震源の深さ (km)" }, reverse: true, min: 0 } }
-        }
+        type: 'scatter', data: { datasets: [{ label: '震源 (深さ km)', data: chartData, backgroundColor: '#ef4444', pointRadius: (ctx) => Math.max((ctx.raw?.mag || 3) * 1.5, 3) }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { title: { display: true, text: "A からの距離 (km)" }, min: 0, max: lineDistKm }, y: { title: { display: true, text: "震源の深さ (km)" }, reverse: true, min: 0 } } }
       });
     }
 
-    // =======================================================
-    // 6. ファイルドラッグ&ドロップ & エクスポート機能
-    // =======================================================
     function setupDragAndDrop() {
       const mapEl = document.getElementById('map'), fileInput = document.getElementById('file-input');
       ['dragenter', 'dragover'].forEach(e => mapEl.addEventListener(e, evt => { evt.preventDefault(); mapEl.classList.add('drag-over'); }));
       ['dragleave', 'drop'].forEach(e => mapEl.addEventListener(e, evt => { evt.preventDefault(); mapEl.classList.remove('drag-over'); }));
       const handleFile = (file) => {
         if (!file) return; showLoading("解析中...");
-        if (file.name.endsWith('.csv')) {
-          Papa.parse(file, { header: true, skipEmptyLines: true, complete: (res) => {
-            hideLoading(); const gj = convertCsvToGeoJSON(res.data);
-            if (gj) { rawGeoJsonData = gj; renderGeoJSON(rawGeoJsonData); closeWizard(); } else alert("緯度・経度が見つかりません。");
-          }});
-        } else {
-          const reader = new FileReader();
-          reader.onload = (e) => { hideLoading(); try { rawGeoJsonData = JSON.parse(e.target.result); renderGeoJSON(rawGeoJsonData); closeWizard(); } catch(err) { alert("JSON解析失敗"); } };
-          reader.readAsText(file);
-        }
+        if (file.name.endsWith('.csv')) { Papa.parse(file, { header: true, skipEmptyLines: true, complete: (res) => { hideLoading(); const gj = convertCsvToGeoJSON(res.data); if (gj) { rawGeoJsonData = gj; renderGeoJSON(rawGeoJsonData); closeWizard(); } else alert("緯度・経度が見つかりません。"); }}); }
+        else { const reader = new FileReader(); reader.onload = (e) => { hideLoading(); try { rawGeoJsonData = JSON.parse(e.target.result); renderGeoJSON(rawGeoJsonData); closeWizard(); } catch(err) { alert("JSON解析失敗"); } }; reader.readAsText(file); }
       };
       mapEl.addEventListener('drop', e => { if (e.dataTransfer.files.length > 0) handleFile(e.dataTransfer.files[0]); });
       fileInput.addEventListener('change', e => { if (e.target.files.length > 0) handleFile(e.target.files[0]); });
@@ -657,11 +522,7 @@
       const features = [];
       rows.forEach((row, idx) => {
         const lat = parseFloat(row.latitude || row.lat || row.緯度 || row.Y), lon = parseFloat(row.longitude || row.lon || row.lng || row.経度 || row.X);
-        if (!isNaN(lat) && !isNaN(lon)) {
-          features.push({ type: "Feature", geometry: { type: "Point", coordinates: [lon, lat, parseFloat(row.depth || row.深さ || 10)] },
-            properties: { title: row.title || row.place || row.地点名 || `地点 #${idx+1}`, magnitude: parseFloat(row.magnitude || row.mag || row.M || 3.0), depth: parseFloat(row.depth || row.深さ || 10) }
-          });
-        }
+        if (!isNaN(lat) && !isNaN(lon)) features.push({ type: "Feature", geometry: { type: "Point", coordinates: [lon, lat, parseFloat(row.depth || row.深さ || 10)] }, properties: { title: row.title || row.place || row.地点名 || `地点 #${idx+1}`, magnitude: parseFloat(row.magnitude || row.mag || row.M || 3.0), depth: parseFloat(row.depth || row.深さ || 10) } });
       });
       return features.length > 0 ? { type: "FeatureCollection", features: features } : null;
     }
@@ -669,26 +530,20 @@
     function exportMapImage() {
       showLoading("画像キャプチャ中...");
       html2canvas(document.getElementById('map'), { useCORS: true, allowTaint: false }).then(canvas => {
-        hideLoading(); const link = document.createElement("a"); link.download = `quake_map_${new Date().toISOString().slice(0,10)}.png`;
-        link.href = canvas.toDataURL("image/png"); link.click();
+        hideLoading(); const link = document.createElement("a"); link.download = `quake_map_${new Date().toISOString().slice(0,10)}.png`; link.href = canvas.toDataURL("image/png"); link.click();
       }).catch(err => { hideLoading(); alert("画像出力に失敗しました。"); });
     }
 
     function exportData(format) {
       if (rawGeoJsonData.features.length === 0) return alert("データがありません。");
       let content = "", filename = `quake_data_${new Date().toISOString().slice(0,10)}`, mimeType = "";
-      if (format === 'geojson') {
-        content = JSON.stringify(rawGeoJsonData, null, 2); filename += ".geojson"; mimeType = "application/json";
-      } else {
+      if (format === 'geojson') { content = JSON.stringify(rawGeoJsonData, null, 2); filename += ".geojson"; mimeType = "application/json"; }
+      else {
         content = "title,latitude,longitude,depth_km,magnitude,max_intensity,time_jst\n";
-        rawGeoJsonData.features.forEach(f => {
-          const p = f.properties;
-          content += `"${(p.title || '地震').replace(/"/g, '""')}",${f.geometry.coordinates[1]},${f.geometry.coordinates[0]},${f.geometry.coordinates[2] || 0},${p.magnitude || p.mag || 0},${p.maxInt || ""},${p.time ? new Date(p.time).toLocaleString('ja-JP', {timeZone: 'Asia/Tokyo'}) : ""}\n`;
-        });
+        rawGeoJsonData.features.forEach(f => { const p = f.properties; content += `"${(p.title || '地震').replace(/"/g, '""')}",${f.geometry.coordinates[1]},${f.geometry.coordinates[0]},${f.geometry.coordinates[2] || 0},${p.magnitude || p.mag || 0},${p.maxInt || ""},${p.time ? new Date(p.time).toLocaleString('ja-JP', {timeZone: 'Asia/Tokyo'}) : ""}\n`; });
         filename += ".csv"; mimeType = "text/csv;charset=utf-8;";
       }
-      const blob = new Blob([content], { type: mimeType }); const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob); link.download = filename; link.click();
+      const blob = new Blob([content], { type: mimeType }); const link = document.createElement("a"); link.href = URL.createObjectURL(blob); link.download = filename; link.click();
     }
   </script>
 </body>
