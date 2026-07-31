@@ -288,41 +288,52 @@
       initDates();
     });
 
-    // 1. マップ初期化 (Canvas レンダラー＋地質図レイヤー)
-    function initMap() {
-      // Leaflet Canvas レンダラーを適用して数千件のマーカー描画を高速化
-      map = L.map('map', { 
-        zoomControl: false, 
-        renderer: L.canvas() 
-      }).setView([32.789, 130.705], 8);
+   // 1. マップ初期化 (Canvas レンダラー＋正しい地質図/陰影起伏図レイヤー)
+function initMap() {
+  // Leaflet Canvas レンダラーを適用して描画を高速化
+  map = L.map('map', { 
+    zoomControl: false, 
+    renderer: L.canvas() 
+  }).setView([32.789, 130.705], 8);
 
-      L.control.zoom({ position: 'bottomright' }).addTo(map);
+  L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-      // ① 国土地理院 標準地図
-      const stdMap = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
-        maxZoom: 18, attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">国土地理院</a>'
-      }).addTo(map);
+  // ① 国土地理院 標準地図 (正常)
+  const stdMap = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">国土地理院</a>'
+  }).addTo(map);
 
-      // ② 国土地理院 陰影起伏図
-      const hillShadeMap = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/hillshade/{z}/{x}/{y}.png', {
-        maxZoom: 16, attribution: '国土地理院'
-      });
+  // ② 国土地理院 陰影起伏図 (修正: hillshade -> hillshademap)
+  const hillShadeMap = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/hillshademap/{z}/{x}/{y}.png', {
+    maxZoom: 16,
+    attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">国土地理院</a>'
+  });
 
-      // ③ 産総研 シームレス地質図V2
-      geologyTileLayer = L.tileLayer('https://tiles.gsj.jp/tiles/seamless/v2/std/{z}/{y}/{x}.png', {
-        maxZoom: 16, opacity: 0.75, attribution: '<a href="https://gbank.gsj.jp/seamless/">産総研地質調査総合センター</a>'
-      });
+  // ③ 産総研 シームレス地質図V2 (修正: std -> mid, maxNativeZoom: 13 追加, .addTo(map) 追加)
+  geologyTileLayer = L.tileLayer('https://tiles.gsj.jp/tiles/seamless/v2/mid/{z}/{y}/{x}.png', {
+    maxNativeZoom: 13, // GSJタイルの最大ズーム(13)を超えたら画像を拡大して描画
+    maxZoom: 18,
+    opacity: 0.75,
+    attribution: '<a href="https://gbank.gsj.jp/seamless/" target="_blank">産総研地質調査総合センター</a>'
+  }).addTo(map); // 初期状態でマップ上に重畳表示
 
-      baseLayers = { "地理院 標準地図": stdMap, "地理院 陰影起伏図 (地形)": hillShadeMap };
-      overlayLayers = { "産総研 シームレス地質図V2": geologyTileLayer };
+  baseLayers = { 
+    "地理院 標準地図": stdMap, 
+    "地理院 陰影起伏図 (地形)": hillShadeMap 
+  };
+  
+  overlayLayers = { 
+    "産総研 シームレス地質図V2": geologyTileLayer 
+  };
 
-      L.control.layers(baseLayers, overlayLayers, { position: 'topright' }).addTo(map);
+  L.control.layers(baseLayers, overlayLayers, { position: 'topright' }).addTo(map);
 
-      // 地図クリックイベントハンドラ
-      map.on('click', handleMapClick);
-    }
-
-    function initDates() {
+  // 地図クリックイベントハンドラ
+  map.on('click', handleMapClick);
+}
+    
+       function initDates() {
       const today = new Date();
       const oneMonthAgo = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000));
       document.getElementById('w-end-date').value = today.toISOString().split('T')[0];
